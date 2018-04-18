@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的第一课</title>
+<style>
+	.horizontal {
+		float: left; /*将元素浮动到它后面的一个元素的左侧*/
+		list-style: none; /*如果是列表项移除列表的序号*/
+		margin: 10px; /*加上10像素的外边距*/
+		} 
+	.sub-level {
+		background:#ccc;
+		}
+	 a{
+		color:#00c;
+		}
+	 a.emailto {
+		 background: url(images/email.png) no-repeat right top;
+		 padding-right: 18px;
+		 }
+	a.pdflink {
+		background: url(images/pdf.png) no-repeat right top;
+		padding-right: 18px;
+		}
+	a.henrylink {
+		background-color: #fff;
+		padding: 2px;
+		border: 1px solid #000;
+		}
+</style>
+
+</head>
+
+<body>
+
+
+<ul id='selected-plays'>
+	<li>Comdies
+    	<ul>
+        	<li><a href="/asyoulikeit">As You Like It</a></li>
+        	<li>All's Well That Ends Well</li>
+            <li>A Middsummer Night's Dream</li>
+            <li>Twelfth Night</li>
+        </ul>
+    </li>
+    <li>Tragedites
+		<ul>
+        	<li><a href="hamlet.pdf">Hamlet</a></li>
+            <li>Macbeth</li>
+            <li>Romeo and Juliet</li>
+        </ul>
+    </li>
+    <li>Histories
+        <ul>
+            <li>Henry IV(<a href="mailto: henryiv@kingi.co.uk">email</a>)
+            	<ul>
+            		<li>part I</li>
+                	<li>part II</li>
+                </ul>
+            </li>
+            <li><a href="http://www.shakespeare.co.uk/henryv.html">Henry V</a></li>
+            <li>Richard II</li>
+        </ul>
+    </li>
+</ul>
+</body>
+
+
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#selected-plays > li').addClass('horizontal'); /* > 表征子元素组合符*/
+  $('#selected-plays li:not(.horizontal)').addClass('sub-level') /* :not()否定式伪类选择符 */
+  });
+$(document).ready(function(e) {
+   $('a[href^="mailto:"]').addClass('emailto'); /*属性选择符以^开头*/
+   $('a[href$=".pdf"]').addClass('pdflink'); /*属性选择符以$结束*/ /*属性选择符以*表示任意位置*//*属性选择符以！取反*/
+   $('a[href^="http:"]').addClass('henrylink');
+   
+ 
+});
+</script>
+</html>
